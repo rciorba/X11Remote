@@ -35,10 +35,6 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-//    private void moveMouse(event) {
-//
-//    }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -62,9 +58,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent e){
                 Log.d("Main", e.toString());
-                byte[] data = new byte[6];
+                byte[] data = new byte[3];
+                data[0] = 1;
+                data[1] = 2;
+                data[1] = 3;
                 try {
-                    sock.send(new DatagramPacket(data, 6));
+                    sock.send(new DatagramPacket(data, 3));
                 } catch (IOException excp) {
                     throw new RuntimeException(excp);
                 }
